@@ -107,4 +107,49 @@ public class CheckoutTest {
 		assertEquals("Should have cost 60p", 60, cost);
 	}
 	
+	
+	/**
+	 * Test apple discount applied - 3 oranges purchased.
+	 * @throws Exception If there is a problem.
+	 */
+	@Test
+	public void checkoutOrangeDiscountTest1() throws Exception {
+		String[] items = new String[] {"Orange", "Orange", "Orange"};
+		long cost = Checkout.price(items);
+		assertEquals("Should have cost 50p", 50, cost);
+	}
+	
+	/**
+	 * Test apple discount applied - 5 oranges purchased.
+	 * @throws Exception If there is a problem.
+	 */
+	@Test
+	public void checkoutOrangeDiscountTest2() throws Exception {
+		String[] items = new String[] {"Orange", "Orange", "Orange", "Orange", "Orange" };
+		long cost = Checkout.price(items);
+		assertEquals("Should have cost 100p", 100, cost);
+	}
+	
+	/**
+	 * Test apple discount applied - 6 oranges purchased.
+	 * @throws Exception If there is a problem.
+	 */
+	@Test
+	public void checkoutOrangeDiscountTest3() throws Exception {
+		String[] items = new String[] {"Orange", "Orange", "Orange", "Orange", "Orange", "Orange"};
+		long cost = Checkout.price(items);
+		assertEquals("Should have cost 100p", 100, cost);
+	}
+	
+	/**
+	 * Test orange discount not applied - 2 oranges purchased.
+	 * @throws Exception If there is a problem.
+	 */
+	@Test
+	public void checkoutOrangeDiscountTest4() throws Exception {
+		String[] items = new String[] {"Orange", "Orange"};
+		long cost = Checkout.price(items);
+		assertEquals("Should have cost 50p", 50, cost);
+	}
+	
 }
