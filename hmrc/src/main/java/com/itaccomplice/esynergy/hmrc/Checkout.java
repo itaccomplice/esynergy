@@ -54,7 +54,13 @@ public class Checkout {
 	        Map<String, Long> counters = itemStream
 	        	     .collect(Collectors.groupingBy(item -> item, 
 	        	         Collectors.counting()));
-	        cost = cost - (counters.get(APPLE) / 2 * APPLE_PRICE);
+	        
+	        if (counters.get(APPLE) != null) {
+	        	cost = cost - (counters.get(APPLE) / 2 * APPLE_PRICE);
+	        }
+	        if (counters.get(ORANGE) != null) {
+	        	cost = cost - (counters.get(ORANGE) / 3 * ORANGE_PRICE);
+	        }
 		}
 		return cost;
 	}
